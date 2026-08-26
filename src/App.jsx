@@ -12,9 +12,10 @@ function App() {
         condition="Clear Sky"
       />
 
-      <button onClick={() => setCity("Delhi")}>
-        Change City
-      </button>
+      <input
+        value={city}
+        onChange={(event) => setCity(event.target.value)}
+      />
     </div>
   );
 }

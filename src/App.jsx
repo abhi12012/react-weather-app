@@ -4,6 +4,11 @@ import WeatherHeading from "./components/WeatherHeading";
 function App() {
   const [city, setCity] = useState("Gwalior");
 
+  function handleSearch(event) {
+    event.preventDefault();
+    console.log("Searching for:", city);
+  }
+
   return (
     <div>
       <WeatherHeading
@@ -12,10 +17,14 @@ function App() {
         condition="Clear Sky"
       />
 
-      <input
-        value={city}
-        onChange={(event) => setCity(event.target.value)}
-      />
+      <form onSubmit={handleSearch}>
+        <input
+          value={city}
+          onChange={(event) => setCity(event.target.value)}
+        />
+
+        <button type="submit">Search</button>
+      </form>
     </div>
   );
 }

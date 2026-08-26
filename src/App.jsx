@@ -1,12 +1,20 @@
+import { useState } from "react";
+import WeatherHeading from "./components/WeatherHeading";
+
 function App() {
-  const city = "Gwalior";
-  const temperature = 28;
+  const [city, setCity] = useState("Gwalior");
 
   return (
     <div>
-      <h1>Weather in {city} 🌦️</h1>
-      <h2>{temperature}°C</h2>
-      <p>Clear Sky</p>
+      <WeatherHeading
+        city={city}
+        temperature={28}
+        condition="Clear Sky"
+      />
+
+      <button onClick={() => setCity("Delhi")}>
+        Change City
+      </button>
     </div>
   );
 }

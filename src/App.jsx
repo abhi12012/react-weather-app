@@ -6,12 +6,14 @@ function App() {
    const [searchedCity, setSearchedCity] = useState("Gwalior");
 
 
-  async function testAsync() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+ async function testAsync() {
+  const response = await fetch(
+    "https://geocoding-api.open-meteo.com/v1/search?name=Gwalior"
+  );
 
   const data = await response.json();
 
-  console.log(data);
+  console.log(data.results[0]);
 }
 
 

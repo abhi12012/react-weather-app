@@ -17,12 +17,10 @@ function App() {
   const latitude = data.results[0].latitude;
   const longitude = data.results[0].longitude;
 
-  console.log(latitude);
-  console.log(longitude);
-
+  
 
   const weatherResponse = await fetch(
-  `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m`
+  `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m,weather_code`
 );
 
 const weatherData = await weatherResponse.json();
@@ -30,11 +28,13 @@ const weatherData = await weatherResponse.json();
 const currentTemperature = weatherData.current.temperature_2m;
 setTemperature(currentTemperature);
 
+const weatherCode = weatherData.current.weather_code;
+
+console.log(weatherCode);
+
 
 const windSpeed = weatherData.current.wind_speed_10m;
 
-console.log(temperature);
-console.log(windSpeed);
 
 
 }

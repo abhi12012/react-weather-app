@@ -4,6 +4,7 @@ import WeatherHeading from "./components/WeatherHeading";
 function App() {
   const [city, setCity] = useState("Gwalior");
    const [searchedCity, setSearchedCity] = useState("Gwalior");
+   const [temperature, setTemperature] = useState(null);
 
 
  async function testAsync() {
@@ -26,7 +27,16 @@ function App() {
 
 const weatherData = await weatherResponse.json();
 
-console.log(weatherData.current);
+const currentTemperature = weatherData.current.temperature_2m;
+setTemperature(currentTemperature);
+
+
+const windSpeed = weatherData.current.wind_speed_10m;
+
+console.log(temperature);
+console.log(windSpeed);
+
+
 }
 
 
@@ -42,23 +52,23 @@ console.log(weatherData.current);
 }
 
   return (
-    <div>
-      <WeatherHeading
-        city={city}
-        temperature={28}
-        condition="Clear Sky"
+  <div>
+    <WeatherHeading
+      city={city}
+      temperature={temperature}
+      condition="Clear Sky"
+    />
+
+    <form onSubmit={handleSearch}>
+      <input
+        value={city}
+        onChange={(event) => setCity(event.target.value)}
       />
 
-      <form onSubmit={handleSearch}>
-        <input
-          value={city}
-          onChange={(event) => setCity(event.target.value)}
-        />
-
-        <button type="submit">Search</button>
-      </form>
-    </div>
-  );
+      <button type="submit">Search</button>
+    </form>
+  </div>
+);
 }
 
 export default App;

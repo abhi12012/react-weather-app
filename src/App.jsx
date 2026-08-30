@@ -13,7 +13,7 @@ function App() {
 
   const data = await response.json();
 
-  console.log(data.results[0]);
+  console.log(data.results[0].longitude);
 }
 
 

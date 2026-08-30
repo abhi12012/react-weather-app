@@ -13,7 +13,20 @@ function App() {
 
   const data = await response.json();
 
-  console.log(data.results[0].longitude);
+  const latitude = data.results[0].latitude;
+  const longitude = data.results[0].longitude;
+
+  console.log(latitude);
+  console.log(longitude);
+
+
+  const weatherResponse = await fetch(
+  `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m`
+);
+
+const weatherData = await weatherResponse.json();
+
+console.log(weatherData.current);
 }
 
 

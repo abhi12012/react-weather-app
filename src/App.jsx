@@ -3,11 +3,23 @@ import WeatherHeading from "./components/WeatherHeading";
 
 function App() {
   const [city, setCity] = useState("Gwalior");
+   const [searchedCity, setSearchedCity] = useState("Gwalior");
+
+
+  async function testAsync() {
+  const result = await Promise.resolve("Weather Data");
+  console.log(result);
+}
 
   function handleSearch(event) {
-    event.preventDefault();
-    console.log("Searching for:", city);
-  }
+  event.preventDefault();
+
+  setSearchedCity(city);
+
+  testAsync();
+
+  console.log("Searching for:", city);
+}
 
   return (
     <div>

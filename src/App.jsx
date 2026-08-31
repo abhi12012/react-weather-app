@@ -51,7 +51,8 @@ const weatherCode = weatherData.current.weather_code;
 
 
 
-const currentCondition = weatherConditions[weatherCode];
+const currentCondition =
+  weatherConditions[weatherCode] || "Unknown Weather";
 
 setCondition(currentCondition);
 
@@ -86,6 +87,13 @@ setLoading(false);
   setLoading(true);
 
   setError("");
+
+  setTemperature(null);
+setCondition("");
+setWindSpeed(null);
+
+
+
 
   setSearchedCity(cleanCity);
 

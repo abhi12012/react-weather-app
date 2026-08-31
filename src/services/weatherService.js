@@ -1,7 +1,7 @@
 export async function getCoordinates(cityName) {
   const response = await fetch(
-    `https://geocoding-api.open-meteo.com/v1/search?name=${cityName}`
-  );
+  `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}`
+);
 
 
   if (!response.ok) {

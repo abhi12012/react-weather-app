@@ -46,6 +46,7 @@ function App() {
 
 
 async function fetchWeather(cleanCity) {
+  setError("");
   try {
 
     const coordinates = await getCoordinates(cleanCity);
@@ -83,11 +84,14 @@ setWindSpeed(currentWindSpeed);
 setLoading(false);
 
   } catch (error) {
+
   setError(error.message || "Something went wrong");
+
+} finally {
+
   setLoading(false);
 
-
-  }
+}
 }
 
 

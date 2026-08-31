@@ -28,9 +28,12 @@ function App() {
 
   const data = await response.json();
 
-  const latitude = data.results[0].latitude;
-  const longitude = data.results[0].longitude;
+  if (data.results.length === 0) {
+  throw new Error("City not found");
+}
 
+  const latitude = data.results?.[0].latitude;
+const longitude = data.results?.[0].longitude;
   
 
   const weatherResponse = await fetch(

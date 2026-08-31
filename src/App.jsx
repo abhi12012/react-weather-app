@@ -23,7 +23,7 @@ function App() {
  async function testAsync() {
   try {
   const response = await fetch(
-    "https://geocoding-api.open-meteo.com/v1/search?name=Gwalior"
+    `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
   );
 
   const data = await response.json();
@@ -62,6 +62,7 @@ setLoading(false);
 
   } catch (error) {
   setError("Something went wrong");
+  setLoading(false);
 
 
   }

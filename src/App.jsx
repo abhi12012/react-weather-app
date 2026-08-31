@@ -1,10 +1,22 @@
 import { useState } from "react";
 import WeatherHeading from "./components/WeatherHeading";
 
+
+
+const weatherConditions = {
+  0: "Clear Sky",
+  1: "Mainly Clear",
+  2: "Partly Cloudy",
+  3: "Overcast",
+};
+
 function App() {
   const [city, setCity] = useState("Gwalior");
    const [searchedCity, setSearchedCity] = useState("Gwalior");
    const [temperature, setTemperature] = useState(null);
+   const [condition, setCondition] = useState("");
+   const [windSpeed, setWindSpeed] = useState(null);
+   const [loading, setLoading] = useState(false);
 
 
  async function testAsync() {
@@ -33,8 +45,18 @@ const weatherCode = weatherData.current.weather_code;
 console.log(weatherCode);
 
 
-const windSpeed = weatherData.current.wind_speed_10m;
 
+const currentCondition = weatherConditions[weatherCode];
+
+setCondition(currentCondition);
+
+console.log(currentCondition);
+
+
+const currentWindSpeed = weatherData.current.wind_speed_10m;
+setWindSpeed(currentWindSpeed);
+
+setLoading(false);
 
 
 }
@@ -43,6 +65,8 @@ const windSpeed = weatherData.current.wind_speed_10m;
 
   function handleSearch(event) {
   event.preventDefault();
+
+  setLoading(true);
 
   setSearchedCity(city);
 
@@ -54,9 +78,10 @@ const windSpeed = weatherData.current.wind_speed_10m;
   return (
   <div>
     <WeatherHeading
-      city={city}
+      city={searchedCity}
       temperature={temperature}
-      condition="Clear Sky"
+      condition={condition}
+      windSpeed={windSpeed}
     />
 
     <form onSubmit={handleSearch}>

@@ -1,4 +1,4 @@
-import { getCoordinates } from "./services/weatherService";
+import { getCoordinates, getWeather } from "./services/weatherService";
 import { useState } from "react";
 import WeatherHeading from "./components/WeatherHeading";
 
@@ -50,13 +50,14 @@ async function fetchWeather(cleanCity) {
 
     const coordinates = await getCoordinates(cleanCity);
 
+    const weatherData = await getWeather(
+  coordinates.latitude,
+  coordinates.longitude
+);
+
 
  
-  const weatherResponse = await fetch(
-  `https://api.open-meteo.com/v1/forecast?latitude=${coordinates.latitude}&longitude=${coordinates.longitude}&current=temperature_2m,wind_speed_10m,weather_code`
-);
-const weatherData = await weatherResponse.json();
-
+  
 const currentTemperature = weatherData.current.temperature_2m;
 setTemperature(currentTemperature);
 

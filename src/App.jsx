@@ -77,12 +77,17 @@ setLoading(false);
 
   return (
   <div>
-    <WeatherHeading
-      city={searchedCity}
-      temperature={temperature}
-      condition={condition}
-      windSpeed={windSpeed}
-    />
+
+    {loading ? (
+  <p>Loading...</p>
+) : (
+  <WeatherHeading
+    city={searchedCity}
+    temperature={temperature}
+    condition={condition}
+    windSpeed={windSpeed}
+  />
+)}
 
     <form onSubmit={handleSearch}>
       <input

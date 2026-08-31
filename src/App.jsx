@@ -58,10 +58,12 @@ async function fetchWeather(cleanCity) {
 
  
   
-const currentTemperature = weatherData.current.temperature_2m;
+const currentTemperature = weatherData.temperature;
+console.log("Temperature:", currentTemperature);
+
 setTemperature(currentTemperature);
 
-const weatherCode = weatherData.current.weather_code;
+const weatherCode = weatherData.weatherCode;
 
 
 
@@ -75,7 +77,7 @@ setCondition(currentCondition);
 
 
 
-const currentWindSpeed = weatherData.current.wind_speed_10m;
+const currentWindSpeed = weatherData.windSpeed;
 setWindSpeed(currentWindSpeed);
 
 setLoading(false);

@@ -3,6 +3,11 @@ export async function getCoordinates(cityName) {
     `https://geocoding-api.open-meteo.com/v1/search?name=${cityName}`
   );
 
+
+  if (!response.ok) {
+  throw new Error("City search failed");
+}
+
   const data = await response.json();
 
   if (!data.results || data.results.length === 0) {
@@ -23,8 +28,19 @@ export async function getWeather(latitude, longitude) {
   const response = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m,weather_code`
   );
+   
+
+
+  if (!response.ok) {
+  throw new Error("Weather data could not be fetched");
+}
+
 
   const data = await response.json();
 
-  return data;
+ return {
+  temperature: data.current.temperature_2m,
+  windSpeed: data.current.wind_speed_10m,
+  weatherCode: data.current.weather_code
+};
 }

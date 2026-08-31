@@ -1,3 +1,4 @@
+import { getCoordinates } from "./services/weatherService";
 import { useState } from "react";
 import WeatherHeading from "./components/WeatherHeading";
 
@@ -42,26 +43,18 @@ function App() {
    const [error, setError] = useState("");
 
 
+
+
 async function fetchWeather(cleanCity) {
   try {
-  const response = await fetch(
-  `https://geocoding-api.open-meteo.com/v1/search?name=${cleanCity}`
-  );
 
- const data = await response.json();
+    const coordinates = await getCoordinates(cleanCity);
 
-if (!data.results || data.results.length === 0) {
-  throw new Error("City not found");
-}
 
-const latitude = data.results?.[0].latitude;
-const longitude = data.results?.[0].longitude;
-  
-
+ 
   const weatherResponse = await fetch(
-  `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m,weather_code`
+  `https://api.open-meteo.com/v1/forecast?latitude=${coordinates.latitude}&longitude=${coordinates.longitude}&current=temperature_2m,wind_speed_10m,weather_code`
 );
-
 const weatherData = await weatherResponse.json();
 
 const currentTemperature = weatherData.current.temperature_2m;

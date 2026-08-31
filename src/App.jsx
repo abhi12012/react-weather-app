@@ -54,8 +54,8 @@ if (!data.results || data.results.length === 0) {
   throw new Error("City not found");
 }
 
-const latitude = data.results[0].latitude;
-const longitude = data.results[0].longitude;
+const latitude = data.results?.[0].latitude;
+const longitude = data.results?.[0].longitude;
   
 
   const weatherResponse = await fetch(
@@ -87,7 +87,7 @@ setWindSpeed(currentWindSpeed);
 setLoading(false);
 
   } catch (error) {
-  setError("Something went wrong");
+  setError(error.message);
   setLoading(false);
 
 

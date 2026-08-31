@@ -17,9 +17,11 @@ function App() {
    const [condition, setCondition] = useState("");
    const [windSpeed, setWindSpeed] = useState(null);
    const [loading, setLoading] = useState(false);
+   const [error, setError] = useState("");
 
 
  async function testAsync() {
+  try {
   const response = await fetch(
     "https://geocoding-api.open-meteo.com/v1/search?name=Gwalior"
   );
@@ -42,7 +44,7 @@ setTemperature(currentTemperature);
 
 const weatherCode = weatherData.current.weather_code;
 
-console.log(weatherCode);
+
 
 
 
@@ -50,7 +52,7 @@ const currentCondition = weatherConditions[weatherCode];
 
 setCondition(currentCondition);
 
-console.log(currentCondition);
+
 
 
 const currentWindSpeed = weatherData.current.wind_speed_10m;
@@ -58,7 +60,9 @@ setWindSpeed(currentWindSpeed);
 
 setLoading(false);
 
+  } catch (error) {
 
+  }
 }
 
 
@@ -72,7 +76,7 @@ setLoading(false);
 
   testAsync();
 
-  console.log("Searching for:", city);
+ 
 }
 
   return (

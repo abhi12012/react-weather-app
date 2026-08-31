@@ -26,14 +26,14 @@ function App() {
     `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
   );
 
-  const data = await response.json();
+ const data = await response.json();
 
-  if (data.results.length === 0) {
+if (!data.results || data.results.length === 0) {
   throw new Error("City not found");
 }
 
-  const latitude = data.results?.[0].latitude;
-const longitude = data.results?.[0].longitude;
+const latitude = data.results[0].latitude;
+const longitude = data.results[0].longitude;
   
 
   const weatherResponse = await fetch(
@@ -75,6 +75,13 @@ setLoading(false);
 
   function handleSearch(event) {
   event.preventDefault();
+
+  const cleanCity = city.trim();
+
+  if (city.trim() === "") {
+  setError("Please enter a city");
+  return;
+}
 
   setLoading(true);
 

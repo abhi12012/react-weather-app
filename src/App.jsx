@@ -42,10 +42,10 @@ function App() {
    const [error, setError] = useState("");
 
 
-async function testAsync(cityName) {
+async function fetchWeather(cleanCity) {
   try {
   const response = await fetch(
-   `https://geocoding-api.open-meteo.com/v1/search?name=${cityName}`
+  `https://geocoding-api.open-meteo.com/v1/search?name=${cleanCity}`
   );
 
  const data = await response.json();
@@ -87,7 +87,7 @@ setWindSpeed(currentWindSpeed);
 setLoading(false);
 
   } catch (error) {
-  setError(error.message);
+  setError(error.message || "Something went wrong");
   setLoading(false);
 
 
@@ -119,7 +119,7 @@ setWindSpeed(null);
 
   setSearchedCity(cleanCity);
 
-  testAsync(cleanCity);
+  fetchWeather(cleanCity);
 
  
 }

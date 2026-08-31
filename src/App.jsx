@@ -20,10 +20,10 @@ function App() {
    const [error, setError] = useState("");
 
 
- async function testAsync() {
+async function testAsync(cityName) {
   try {
   const response = await fetch(
-    `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
+   `https://geocoding-api.open-meteo.com/v1/search?name=${cityName}`
   );
 
  const data = await response.json();
@@ -87,9 +87,9 @@ setLoading(false);
 
   setError("");
 
-  setSearchedCity(city);
+  setSearchedCity(cleanCity);
 
-  testAsync();
+  testAsync(cleanCity);
 
  
 }

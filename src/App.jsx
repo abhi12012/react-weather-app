@@ -61,6 +61,8 @@ setWindSpeed(currentWindSpeed);
 setLoading(false);
 
   } catch (error) {
+  setError("Something went wrong");
+
 
   }
 }
@@ -72,6 +74,8 @@ setLoading(false);
 
   setLoading(true);
 
+  setError("");
+
   setSearchedCity(city);
 
   testAsync();
@@ -80,10 +84,16 @@ setLoading(false);
 }
 
   return (
+
+
   <div>
+
+
 
     {loading ? (
   <p>Loading...</p>
+) : error ? (
+  <p>{error}</p>
 ) : (
   <WeatherHeading
     city={searchedCity}
@@ -92,6 +102,8 @@ setLoading(false);
     windSpeed={windSpeed}
   />
 )}
+
+
 
     <form onSubmit={handleSearch}>
       <input

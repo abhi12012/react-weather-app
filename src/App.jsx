@@ -38,8 +38,21 @@ function App() {
 
    const {
   temperature: hookTemperature,
+  condition: hookCondition,
+  windSpeed: hookWindSpeed,
+  loading: hookLoading,
   fetchWeather: hookFetchWeather
 } = useWeather();
+
+
+
+console.log("Hook Temperature:", hookTemperature);
+console.log("Hook Condition:", hookCondition);
+console.log("Hook Fetch Function:", hookFetchWeather);
+console.log("Hook Wind Speed:", hookWindSpeed);
+console.log("Hook Loading:", hookLoading);
+
+
 
   const [city, setCity] = useState("Gwalior");
   const [searchedCity, setSearchedCity] = useState("");
@@ -156,6 +169,13 @@ setWindSpeed(null);
     windSpeed={windSpeed}
   />
 )}
+
+
+
+<button onClick={() => hookFetchWeather("Gwalior")}>
+  Test Hook
+</button>
+
 
     <form onSubmit={handleSearch}>
       <input

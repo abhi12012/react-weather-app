@@ -5,6 +5,8 @@ import {
   getWeather
 } from "../services/weatherService";
 
+import weatherConditions from "../utils/weatherConditions";
+
 function useWeather() {
 
   const [temperature, setTemperature] = useState(null);
@@ -20,6 +22,8 @@ function useWeather() {
  async function fetchWeather(cleanCity) {
 
   setLoading(true);
+
+  setError("");
 
   try {
 
@@ -49,10 +53,13 @@ function useWeather() {
 
   setError(error.message || "Something went wrong");
 
-}
+} finally {
+
+  setLoading(false);
 
 }
 
+}
 return {
   temperature,
   condition,

@@ -1,6 +1,28 @@
 import weatherConditions from "../utils/weatherConditions";
 import ForecastCard from "./ForecastCard";
 
+
+const weatherIcons = {
+  0: "☀️",
+  1: "🌤️",
+  2: "⛅",
+  3: "☁️",
+  45: "🌫️",
+  48: "🌫️",
+  51: "🌦️",
+  53: "🌦️",
+  55: "🌦️",
+  61: "🌧️",
+  63: "🌧️",
+  65: "🌧️",
+  80: "🌦️",
+  81: "🌧️",
+  82: "🌧️",
+  95: "⛈️",
+  96: "⛈️",
+  99: "⛈️"
+};
+
 function Forecast({ forecast }) {
     console.log(forecast);
     console.log(forecast?.time);

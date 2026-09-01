@@ -16,6 +16,7 @@ function useWeather() {
   const [windSpeed, setWindSpeed] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [feelsLike, setFeelsLike] = useState(null);
 
 
 
@@ -43,6 +44,10 @@ function useWeather() {
     const currentTemperature = weatherData.temperature;
 
     setTemperature(currentTemperature);
+
+    const currentFeelsLike = weatherData.feelsLike;
+
+setFeelsLike(currentFeelsLike);
     
 
     const weatherCode = weatherData.weatherCode;

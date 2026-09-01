@@ -47,12 +47,6 @@ const {
 } = useWeather();
 
 
-console.log("Hook Temperature:", hookTemperature);
-console.log("Hook Condition:", hookCondition);
-console.log("Hook Fetch Function:", hookFetchWeather);
-console.log("Hook Wind Speed:", hookWindSpeed);
-console.log("Hook Loading:", hookLoading);
-console.log("Hook Error:", hookError);
 
 
 
@@ -68,61 +62,7 @@ console.log("Hook Error:", hookError);
 
 
 
-   async function handleWeatherSearch(cleanCity) {
-  await hookFetchWeather(cleanCity);
-}
-
-async function fetchWeather(cleanCity) {
-  setError("");
-  try {
-
-    const coordinates = await getCoordinates(cleanCity);
-
-    const weatherData = await getWeather(
-  coordinates.latitude,
-  coordinates.longitude
-);
-
-
- 
-  
-const currentTemperature = weatherData.temperature;
-console.log("Temperature:", currentTemperature);
-
-setTemperature(currentTemperature);
-
-const weatherCode = weatherData.weatherCode;
-
-
-
-
-
-const currentCondition =
-  weatherConditions[weatherCode] || "Unknown Weather";
-
-setCondition(currentCondition);
-
-
-
-
-const currentWindSpeed = weatherData.windSpeed;
-setWindSpeed(currentWindSpeed);
-
-setLoading(false);
-
-  } catch (error) {
-
-  setError(error.message || "Something went wrong");
-
-} finally {
-
-  setLoading(false);
-
-}
-}
-
-
-
+   
   function handleSearch(event) {
   event.preventDefault();
 
@@ -146,7 +86,7 @@ setWindSpeed(null);
 
   setSearchedCity(cleanCity);
 
-  fetchWeather(cleanCity);
+  hookFetchWeather(cleanCity);
 
  
 }

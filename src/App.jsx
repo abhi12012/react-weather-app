@@ -30,7 +30,7 @@ const {
    useEffect(() => {
   setSearchedCity(city);
   hookFetchWeather(city);
-}, []);
+}, [city]);
    
    const [error, setError] = useState("");
 

@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import WeatherHeading from "./components/WeatherHeading";
 import useWeather from "./hooks/useWeather";
+import Forecast from "./components/Forecast";
 
 
 
@@ -23,6 +24,7 @@ const {
   visibility: hookVisibility,
   sunrise: hookSunrise,
 sunset: hookSunset,
+forecast: hookForecast,
 } = useWeather();
 
 
@@ -107,9 +109,13 @@ sunset: hookSunset,
   sunrise={hookSunrise}
 sunset={hookSunset}
 />
+
+
 )}
 
 
+
+<Forecast forecast={hookForecast} />
 
 <button onClick={() => hookFetchWeather("Gwalior")}>
   Test Hook

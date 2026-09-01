@@ -24,6 +24,7 @@ function useWeather() {
   const [visibility, setVisibility] = useState(null);
   const [sunrise, setSunrise] = useState("");
   const [sunset, setSunset] = useState("");
+  const [forecast, setForecast] = useState(null);
   
   
 
@@ -81,6 +82,10 @@ const currentSunset = weatherData.sunset;
 
 setSunset(currentSunset);
 
+setForecast(weatherData.forecast);
+
+
+
     const weatherCode = weatherData.weatherCode;
 
     const currentCondition =
@@ -123,6 +128,7 @@ return {
   visibility,
   sunrise,
 sunset,
+forecast,
 };
 
 }

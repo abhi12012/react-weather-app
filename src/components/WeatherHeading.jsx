@@ -10,7 +10,7 @@ sunset, humidity,pressure,visibility, feelsLike, icon, condition, windSpeed }) {
       <p>Pressure: {pressure} hPa</p>
       <p>Visibility: {visibility} m</p>
       <p>Sunrise: {sunrise}</p>
-<p>Sunset: {sunset}</p>
+      <p>Sunset: {sunset}</p>
       <p>{condition}</p>
       <p>Wind: {windSpeed} km/h</p>
     </div>

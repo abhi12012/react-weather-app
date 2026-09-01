@@ -1,6 +1,7 @@
 import { getCoordinates, getWeather } from "./services/weatherService";
 import { useState } from "react";
 import WeatherHeading from "./components/WeatherHeading";
+import useWeather from "./hooks/useWeather";
 
 
 
@@ -34,6 +35,9 @@ const weatherConditions = {
 };
 
 function App() {
+
+   const { temperature: hookTemperature } = useWeather();
+
   const [city, setCity] = useState("Gwalior");
   const [searchedCity, setSearchedCity] = useState("");
    const [temperature, setTemperature] = useState(null);

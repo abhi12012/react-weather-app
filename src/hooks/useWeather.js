@@ -20,6 +20,8 @@ function useWeather() {
   const [weatherCode, setWeatherCode] = useState(null);
   const [icon, setIcon] = useState("");
   const [humidity, setHumidity] = useState(null);
+  const [pressure, setPressure] = useState(null);
+  const [visibility, setVisibility] = useState(null);
   
   
 
@@ -57,6 +59,16 @@ setFeelsLike(currentFeelsLike);
 const currentHumidity = weatherData.humidity;
 
 setHumidity(currentHumidity);
+
+
+
+const currentPressure = weatherData.pressure;
+
+setPressure(currentPressure);
+
+const currentVisibility = weatherData.visibility;
+
+setVisibility(currentVisibility);
     
 
     const weatherCode = weatherData.weatherCode;
@@ -97,6 +109,8 @@ return {
   fetchWeather,
   feelsLike,
   humidity,
+  pressure,
+  visibility,
 };
 
 }

@@ -19,6 +19,8 @@ const {
   error: hookError,
   fetchWeather: hookFetchWeather,
   humidity: hookHumidity,
+  pressure: hookPressure,
+  visibility: hookVisibility,
 } = useWeather();
 
 
@@ -98,6 +100,8 @@ const {
   icon={hookIcon}
   windSpeed={hookWindSpeed}
   humidity={hookHumidity}
+  pressure={hookPressure}
+  visibility={hookVisibility}
 />
 )}
 

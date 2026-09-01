@@ -19,6 +19,7 @@ function useWeather() {
   const [feelsLike, setFeelsLike] = useState(null);
   const [weatherCode, setWeatherCode] = useState(null);
   const [icon, setIcon] = useState("");
+  const [humidity, setHumidity] = useState(null);
   
   
 
@@ -52,6 +53,10 @@ function useWeather() {
     const currentFeelsLike = weatherData.feelsLike;
 
 setFeelsLike(currentFeelsLike);
+
+const currentHumidity = weatherData.humidity;
+
+setHumidity(currentHumidity);
     
 
     const weatherCode = weatherData.weatherCode;
@@ -91,6 +96,7 @@ return {
   error,
   fetchWeather,
   feelsLike,
+  humidity,
 };
 
 }

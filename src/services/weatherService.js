@@ -26,7 +26,7 @@ export async function getCoordinates(cityName) {
 
 export async function getWeather(latitude, longitude) {
   const response = await fetch(
-    `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,wind_speed_10m,weather_code`
+    `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code`
   );
    
 
@@ -40,8 +40,9 @@ export async function getWeather(latitude, longitude) {
 
  return {
   temperature: data.current.temperature_2m,
-  windSpeed: data.current.wind_speed_10m,
-  weatherCode: data.current.weather_code,
   feelsLike: data.current.apparent_temperature,
+  humidity: data.current.relative_humidity_2m,
+  windSpeed: data.current.wind_speed_10m,
+  weatherCode: data.current.weather_code
 };
 }

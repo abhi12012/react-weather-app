@@ -7,6 +7,8 @@ import {
 
 import weatherConditions from "../utils/weatherConditions";
 
+
+
 function useWeather() {
 
   const [temperature, setTemperature] = useState(null);
@@ -21,6 +23,8 @@ function useWeather() {
 
  async function fetchWeather(cleanCity) {
 
+
+
   setLoading(true);
 
   setError("");
@@ -34,9 +38,12 @@ function useWeather() {
       coordinates.longitude
     );
 
+    
+
     const currentTemperature = weatherData.temperature;
 
     setTemperature(currentTemperature);
+    
 
     const weatherCode = weatherData.weatherCode;
 

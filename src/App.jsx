@@ -36,14 +36,15 @@ const weatherConditions = {
 
 function App() {
 
-   const {
+
+const {
   temperature: hookTemperature,
   condition: hookCondition,
   windSpeed: hookWindSpeed,
   loading: hookLoading,
+  error: hookError,
   fetchWeather: hookFetchWeather
 } = useWeather();
-
 
 
 console.log("Hook Temperature:", hookTemperature);
@@ -51,6 +52,7 @@ console.log("Hook Condition:", hookCondition);
 console.log("Hook Fetch Function:", hookFetchWeather);
 console.log("Hook Wind Speed:", hookWindSpeed);
 console.log("Hook Loading:", hookLoading);
+console.log("Hook Error:", hookError);
 
 
 
@@ -172,7 +174,7 @@ setWindSpeed(null);
 
 
 
-<button onClick={() => hookFetchWeather("Gwalior")}>
+<button onClick={() => hookFetchWeather("XYZABC123")}>
   Test Hook
 </button>
 

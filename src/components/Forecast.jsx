@@ -1,3 +1,5 @@
+import weatherConditions from "../utils/weatherConditions";
+
 function Forecast({ forecast }) {
     console.log(forecast);
     console.log(forecast?.time);
@@ -5,13 +7,11 @@ function Forecast({ forecast }) {
     <div>
       <h2>5-Day Forecast</h2>
 
-
-      {forecast?.time.map((date, index) => (
+{forecast?.time.map((date, index) => (
   <p key={date}>
-    {date} — {forecast.temperature_2m_max[index]}°C
+    {new Date(date).toDateString()} — {forecast.temperature_2m_max[index]}°C / {forecast.temperature_2m_min[index]}°C — {weatherConditions[forecast.weather_code[index]]}
   </p>
 ))}
-
     </div>
   );
 }

@@ -1,4 +1,5 @@
-function WeatherHeading({ city, temperature, humidity,pressure,visibility, feelsLike, icon, condition, windSpeed }) {
+function WeatherHeading({ city, temperature,sunrise,
+sunset, humidity,pressure,visibility, feelsLike, icon, condition, windSpeed }) {
   return (
     <div>
       <h1>Weather in {city} 🌦️</h1>
@@ -8,6 +9,8 @@ function WeatherHeading({ city, temperature, humidity,pressure,visibility, feels
       <p>Humidity: {humidity}%</p>
       <p>Pressure: {pressure} hPa</p>
       <p>Visibility: {visibility} m</p>
+      <p>Sunrise: {sunrise}</p>
+<p>Sunset: {sunset}</p>
       <p>{condition}</p>
       <p>Wind: {windSpeed} km/h</p>
     </div>

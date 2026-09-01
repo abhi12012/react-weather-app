@@ -22,6 +22,8 @@ function useWeather() {
   const [humidity, setHumidity] = useState(null);
   const [pressure, setPressure] = useState(null);
   const [visibility, setVisibility] = useState(null);
+  const [sunrise, setSunrise] = useState("");
+  const [sunset, setSunset] = useState("");
   
   
 
@@ -69,7 +71,15 @@ setPressure(currentPressure);
 const currentVisibility = weatherData.visibility;
 
 setVisibility(currentVisibility);
-    
+
+
+    const currentSunrise = weatherData.sunrise;
+
+setSunrise(currentSunrise);
+
+const currentSunset = weatherData.sunset;
+
+setSunset(currentSunset);
 
     const weatherCode = weatherData.weatherCode;
 
@@ -111,6 +121,8 @@ return {
   humidity,
   pressure,
   visibility,
+  sunrise,
+sunset,
 };
 
 }

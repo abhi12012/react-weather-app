@@ -21,6 +21,8 @@ const {
   humidity: hookHumidity,
   pressure: hookPressure,
   visibility: hookVisibility,
+  sunrise: hookSunrise,
+sunset: hookSunset,
 } = useWeather();
 
 
@@ -102,6 +104,8 @@ const {
   humidity={hookHumidity}
   pressure={hookPressure}
   visibility={hookVisibility}
+  sunrise={hookSunrise}
+sunset={hookSunset}
 />
 )}
 

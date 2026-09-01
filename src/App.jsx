@@ -28,10 +28,12 @@ const {
   
    
    useEffect(() => {
+  console.log("EFFECT API CALL");
   setSearchedCity(city);
   hookFetchWeather(city);
-}, [city]);
-   
+}, []);
+
+
    const [error, setError] = useState("");
 
 

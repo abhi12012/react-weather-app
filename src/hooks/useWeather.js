@@ -78,7 +78,8 @@ return {
   windSpeed,
   loading,
   error,
-  fetchWeather
+  fetchWeather,
+  feelsLike,
 };
 
 }

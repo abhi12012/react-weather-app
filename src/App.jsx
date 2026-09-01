@@ -11,13 +11,13 @@ function App() {
  
 const {
   temperature: hookTemperature,
+  feelsLike: hookFeelsLike,
   condition: hookCondition,
   windSpeed: hookWindSpeed,
   loading: hookLoading,
   error: hookError,
   fetchWeather: hookFetchWeather
 } = useWeather();
-
 
 
 
@@ -92,6 +92,7 @@ const {
   <WeatherHeading
   city={searchedCity}
   temperature={hookTemperature}
+  feelsLike={hookFeelsLike}
   condition={hookCondition}
   windSpeed={hookWindSpeed}
 />

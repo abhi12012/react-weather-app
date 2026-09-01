@@ -157,24 +157,27 @@ setWindSpeed(null);
   <div>
 
 
-{loading ? (
+{hookLoading ? (
   <p>Loading...</p>
-) : error ? (
-  <p>{error}</p>
+
+) : hookError ? (
+  <p>{hookError}</p>
 ) : !searchedCity ? (
   <p>🌦️ Search for a city</p>
 ) : (
+
+  
   <WeatherHeading
-    city={searchedCity}
-    temperature={temperature}
-    condition={condition}
-    windSpeed={windSpeed}
-  />
+  city={searchedCity}
+  temperature={hookTemperature}
+  condition={hookCondition}
+  windSpeed={hookWindSpeed}
+/>
 )}
 
 
 
-<button onClick={() => hookFetchWeather("XYZABC123")}>
+<button onClick={() => hookFetchWeather("Gwalior")}>
   Test Hook
 </button>
 

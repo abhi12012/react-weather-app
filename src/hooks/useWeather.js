@@ -6,7 +6,7 @@ import {
 } from "../services/weatherService";
 
 import weatherConditions from "../utils/weatherConditions";
-
+import weatherIcons from "../utils/weatherIcons";
 
 
 function useWeather() {
@@ -17,6 +17,10 @@ function useWeather() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [feelsLike, setFeelsLike] = useState(null);
+  const [weatherCode, setWeatherCode] = useState(null);
+  const [icon, setIcon] = useState("");
+  
+  
 
 
 
@@ -56,6 +60,13 @@ setFeelsLike(currentFeelsLike);
       weatherConditions[weatherCode] || "Unknown Weather";
 
     setCondition(currentCondition);
+
+
+    const currentIcon =
+  weatherIcons[weatherCode] || "🌦️";
+
+  setIcon(currentIcon);
+
 
     const currentWindSpeed = weatherData.windSpeed;
 

@@ -1,4 +1,4 @@
-function WeatherHeading({ city, temperature, feelsLike, condition, windSpeed }) {
+function WeatherHeading({ city, temperature, feelsLike, icon, condition, windSpeed }) {
   return (
     <div>
       <h1>Weather in {city} 🌦️</h1>

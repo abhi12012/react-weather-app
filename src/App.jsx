@@ -13,12 +13,12 @@ const {
   temperature: hookTemperature,
   feelsLike: hookFeelsLike,
   condition: hookCondition,
+  icon: hookIcon,
   windSpeed: hookWindSpeed,
   loading: hookLoading,
   error: hookError,
   fetchWeather: hookFetchWeather
 } = useWeather();
-
 
 
 
@@ -94,6 +94,7 @@ const {
   temperature={hookTemperature}
   feelsLike={hookFeelsLike}
   condition={hookCondition}
+  icon={hookIcon}
   windSpeed={hookWindSpeed}
 />
 )}

@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WeatherHeading from "./components/WeatherHeading";
 import useWeather from "./hooks/useWeather";
 
@@ -8,7 +8,7 @@ import useWeather from "./hooks/useWeather";
 
 function App() {
 
-
+ 
 const {
   temperature: hookTemperature,
   condition: hookCondition,
@@ -22,11 +22,15 @@ const {
 
 
 
+
   const [city, setCity] = useState("Gwalior");
   const [searchedCity, setSearchedCity] = useState("");
   
    
-   
+   useEffect(() => {
+  setSearchedCity(city);
+  hookFetchWeather(city);
+}, []);
    
    const [error, setError] = useState("");
 

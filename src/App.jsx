@@ -36,7 +36,10 @@ const weatherConditions = {
 
 function App() {
 
-   const { temperature: hookTemperature } = useWeather();
+   const {
+  temperature: hookTemperature,
+  fetchWeather: hookFetchWeather
+} = useWeather();
 
   const [city, setCity] = useState("Gwalior");
   const [searchedCity, setSearchedCity] = useState("");
@@ -48,6 +51,11 @@ function App() {
 
 
 
+
+
+   async function handleWeatherSearch(cleanCity) {
+  await hookFetchWeather(cleanCity);
+}
 
 async function fetchWeather(cleanCity) {
   setError("");

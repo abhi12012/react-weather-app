@@ -17,26 +17,50 @@ function useWeather() {
 
 
 
-  async function fetchWeather(cleanCity) {
+ async function fetchWeather(cleanCity) {
 
-  const coordinates = await getCoordinates(cleanCity);
+  setLoading(true);
 
-  const weatherData = await getWeather(
-    coordinates.latitude,
-    coordinates.longitude
-  );
+  try {
+
+    const coordinates = await getCoordinates(cleanCity);
+
+    const weatherData = await getWeather(
+      coordinates.latitude,
+      coordinates.longitude
+    );
+
+    const currentTemperature = weatherData.temperature;
+
+    setTemperature(currentTemperature);
+
+    const weatherCode = weatherData.weatherCode;
+
+    const currentCondition =
+      weatherConditions[weatherCode] || "Unknown Weather";
+
+    setCondition(currentCondition);
+
+    const currentWindSpeed = weatherData.windSpeed;
+
+    setWindSpeed(currentWindSpeed);
+
+  } catch (error) {
+
+  setError(error.message || "Something went wrong");
 
 }
 
+}
 
-
-  return {
-    temperature,
-     condition,
-     windSpeed,
-     loading,
-     error
-  };
+return {
+  temperature,
+  condition,
+  windSpeed,
+  loading,
+  error,
+  fetchWeather
+};
 
 }
 

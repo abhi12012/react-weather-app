@@ -37,7 +37,10 @@ hourly: hookHourly,
 
   const [city, setCity] = useState("Gwalior");
   const [searchedCity, setSearchedCity] = useState("");
-  const [searchHistory, setSearchHistory] = useLocalStorage();
+ const [searchHistory, setSearchHistory] = useLocalStorage(
+  "searchHistory",
+  []
+);
   
    
    useEffect(() => {

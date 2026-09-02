@@ -80,9 +80,11 @@ hourly: hookHourly,
 
   setSearchedCity(cleanCity);
 
+  if (searchHistory.includes(cleanCity)) {
+  return;
+}
 
-  setSearchHistory([...searchHistory, cleanCity]);
-
+setSearchHistory([...searchHistory, cleanCity]);
   
    
   hookFetchWeather(cleanCity);

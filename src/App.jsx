@@ -81,8 +81,9 @@ hourly: hookHourly,
   setSearchedCity(cleanCity);
 
 
+  setSearchHistory([...searchHistory, cleanCity]);
 
-
+  console.log(searchHistory);
    
   hookFetchWeather(cleanCity);
 

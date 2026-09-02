@@ -1,22 +1,11 @@
 function HourlyCard({ time, temperature }) {
 
-    const hourlyDate = new Date(time);
-
-
-  const today = new Date();
-
-  const isToday =
-    hourlyDate.getFullYear() === today.getFullYear() &&
-    hourlyDate.getMonth() === today.getMonth() &&
-    hourlyDate.getDate() === today.getDate();
-
-    console.log(time, isToday);
-
+    
 
   return (
     <div className="hourly-card">
 
-        <p>{isToday ? "Today" : new Date(time).toLocaleDateString("en-US")}</p>
+      
 
 
       <p>

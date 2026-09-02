@@ -6,7 +6,11 @@ function HourlyForecast({ hourly }) {
   <div>
     <h2>Hourly Forecast</h2>
 
-    <div className="hourly-forecast">
+<h3>Today</h3>
+
+<div className="hourly-forecast">
+    
+
       {hourly?.time.slice(0, 24).map((time, index) => {
 
        const hourlyData = {

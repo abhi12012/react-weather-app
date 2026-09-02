@@ -6,7 +6,7 @@ function HourlyForecast({ hourly }) {
     <div>
       <h2>Hourly Forecast</h2>
 
-      {hourly?.time.map((time, index) => (
+     {hourly?.time.slice(0, 24).map((time, index) => (
         <HourlyCard
           key={time}
           time={time}

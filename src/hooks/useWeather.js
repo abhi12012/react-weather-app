@@ -25,6 +25,7 @@ function useWeather() {
   const [sunrise, setSunrise] = useState("");
   const [sunset, setSunset] = useState("");
   const [forecast, setForecast] = useState(null);
+  const [hourly, setHourly] = useState(null);
   
   
 
@@ -55,9 +56,13 @@ function useWeather() {
 
     setTemperature(currentTemperature);
 
+
+
     const currentFeelsLike = weatherData.feelsLike;
 
 setFeelsLike(currentFeelsLike);
+
+
 
 const currentHumidity = weatherData.humidity;
 
@@ -65,24 +70,37 @@ setHumidity(currentHumidity);
 
 
 
+
+
 const currentPressure = weatherData.pressure;
 
 setPressure(currentPressure);
+
+
+
 
 const currentVisibility = weatherData.visibility;
 
 setVisibility(currentVisibility);
 
 
+
+
     const currentSunrise = weatherData.sunrise;
 
 setSunrise(currentSunrise);
+
+
 
 const currentSunset = weatherData.sunset;
 
 setSunset(currentSunset);
 
+
+
 setForecast(weatherData.forecast);
+
+setHourly(weatherData.hourly);
 
 
 
@@ -129,6 +147,7 @@ return {
   sunrise,
 sunset,
 forecast,
+hourly,
 };
 
 }

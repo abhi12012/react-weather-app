@@ -109,3 +109,38 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+
+
+
+
+
+
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 15px;
+}
+
+.forecast-card {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.forecast-icon {
+  font-size: 35px;
+}
+
+.forecast-temperature {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media (max-width: 768px) {
+  .forecast {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,12 +1,19 @@
 function ForecastCard({ date, maxTemperature, minTemperature, condition,icon }) {
   return (
-    <div>
-      <h3>{date}</h3>
-      <p>{icon}</p>
-      <p>Max: {maxTemperature}°C</p>
-      <p>Min: {minTemperature}°C</p>
-      <p>Condition: {condition}</p>
-    </div>
+    <div className="forecast-card">
+  <h3>{date}</h3>
+
+  <div className="forecast-icon">
+    {icon}
+  </div>
+
+  <p>{condition}</p>
+
+  <div className="forecast-temperature">
+    <span>{maxTemperature}°C</span>
+    <span>{minTemperature}°C</span>
+  </div>
+</div>
   );
 }
 

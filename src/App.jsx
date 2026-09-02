@@ -83,7 +83,7 @@ hourly: hookHourly,
 
   setSearchHistory([...searchHistory, cleanCity]);
 
-  console.log(searchHistory);
+  
    
   hookFetchWeather(cleanCity);
 
@@ -123,7 +123,13 @@ sunset={hookSunset}
 
 )}
 
+<h2>Recent Searches</h2>
 
+<ul>
+  {searchHistory.map((city, index) => (
+    <li key={index}>{city}</li>
+  ))}
+</ul>
 
 <Forecast forecast={hookForecast} />
 <HourlyForecast hourly={hookHourly} />

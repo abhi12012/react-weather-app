@@ -37,7 +37,7 @@ export async function getWeather(latitude, longitude) {
 
 
   const data = await response.json();
-  console.log(data.hourly);
+ 
 
  return {
   temperature: data.current.temperature_2m,

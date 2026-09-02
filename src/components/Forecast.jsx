@@ -40,9 +40,7 @@ function getDayName(date, index) {
 }
 
 function Forecast({ forecast }) {
-    console.log(forecast);
-    console.log(forecast?.time);
-
+   
 
   return (
   <div>

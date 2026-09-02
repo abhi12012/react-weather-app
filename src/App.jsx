@@ -76,7 +76,7 @@ hourly: hookHourly,
 
 
 
-   console.log("Search City:", cleanCity);
+   
   hookFetchWeather(cleanCity);
 
  

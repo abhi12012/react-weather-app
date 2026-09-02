@@ -23,6 +23,22 @@ const weatherIcons = {
   99: "⛈️"
 };
 
+
+
+function getDayName(date, index) {
+  if (index === 0) {
+    return "Today";
+  }
+
+  if (index === 1) {
+    return "Tomorrow";
+  }
+
+  return new Date(date).toLocaleDateString("en-US", {
+    weekday: "long"
+  });
+}
+
 function Forecast({ forecast }) {
     console.log(forecast);
     console.log(forecast?.time);
@@ -33,10 +49,11 @@ function Forecast({ forecast }) {
 {forecast?.time.map((date, index) => (
   <ForecastCard
   key={date}
-  date={new Date(date).toDateString()}
+ date={getDayName(date, index)}
   maxTemperature={forecast.temperature_2m_max[index]}
   minTemperature={forecast.temperature_2m_min[index]}
   condition={weatherConditions[forecast.weather_code[index]]}
+  icon={weatherIcons[forecast.weather_code[index]]}
 />
 ))}
 

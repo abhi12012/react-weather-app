@@ -42,6 +42,7 @@ hourly: hookHourly,
   []
 );
   
+const [favorites, setFavorites] = useState([]);
    
    useEffect(() => {
   
@@ -119,7 +120,14 @@ sunset={hookSunset}
 />
 
 
+
+
 )}
+
+
+<button>
+  ❤️ Favorite
+</button>
 
 <h2>Recent Searches</h2>
 

@@ -4,6 +4,9 @@ import WeatherHeading from "./components/WeatherHeading";
 import useWeather from "./hooks/useWeather";
 import Forecast from "./components/Forecast";
 import HourlyForecast from "./components/HourlyForecast";
+import useLocalStorage from "./hooks/useLocalStorage";
+
+
 
 
 
@@ -34,6 +37,7 @@ hourly: hookHourly,
 
   const [city, setCity] = useState("Gwalior");
   const [searchedCity, setSearchedCity] = useState("");
+  const [searchHistory, setSearchHistory] = useLocalStorage();
   
    
    useEffect(() => {

@@ -80,15 +80,11 @@ hourly: hookHourly,
 
   setSearchedCity(cleanCity);
 
-  if (searchHistory.includes(cleanCity)) {
-  return;
+  if (!searchHistory.includes(cleanCity)) {
+setSearchHistory([cleanCity, ...searchHistory]);
 }
 
-setSearchHistory([...searchHistory, cleanCity]);
-  
-   
-  hookFetchWeather(cleanCity);
-
+hookFetchWeather(cleanCity);
  
 }
 
@@ -129,7 +125,9 @@ sunset={hookSunset}
 
 <ul>
   {searchHistory.map((city, index) => (
-    <li key={index}>{city}</li>
+
+    <li key={index} onClick={() => hookFetchWeather(city)}>{city}</li>
+
   ))}
 </ul>
 

@@ -147,3 +147,27 @@ code {
     box-sizing: border-box;
   }
 }
+
+
+.hourly-forecast {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.hourly-card {
+  min-width: 100px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.hourly-card {
+  min-width: 100px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+   flex-shrink: 0;
+}

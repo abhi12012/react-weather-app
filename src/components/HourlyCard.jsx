@@ -1,8 +1,17 @@
 function HourlyCard({ time, temperature }) {
   return (
     <div className="hourly-card">
-      <p>{time}</p>
-      <p>{temperature}°C</p>
+
+
+      <p>
+  {new Date(time).toLocaleTimeString("en-US", {
+    hour: "numeric",
+    hour12: true
+  })}
+</p>
+
+
+     <p>{Math.round(temperature)}°C</p>
     </div>
   );
 }

@@ -42,23 +42,26 @@ function getDayName(date, index) {
 function Forecast({ forecast }) {
     console.log(forecast);
     console.log(forecast?.time);
+
+
   return (
-    <div>
-      <h2>5-Day Forecast</h2>
+  <div>
+    <h2>5-Day Forecast</h2>
 
-{forecast?.time.map((date, index) => (
-  <ForecastCard
-  key={date}
- date={getDayName(date, index)}
-  maxTemperature={forecast.temperature_2m_max[index]}
-  minTemperature={forecast.temperature_2m_min[index]}
-  condition={weatherConditions[forecast.weather_code[index]]}
-  icon={weatherIcons[forecast.weather_code[index]]}
-/>
-))}
-
+    <div className="forecast">
+      {forecast?.time.map((date, index) => (
+        <ForecastCard
+          key={date}
+          date={getDayName(date, index)}
+          maxTemperature={forecast.temperature_2m_max[index]}
+          minTemperature={forecast.temperature_2m_min[index]}
+          condition={weatherConditions[forecast.weather_code[index]]}
+          icon={weatherIcons[forecast.weather_code[index]]}
+        />
+      ))}
     </div>
-  );
+  </div>
+);
 }
 
 export default Forecast;

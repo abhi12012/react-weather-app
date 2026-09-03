@@ -5,6 +5,7 @@ import useWeather from "./hooks/useWeather";
 import Forecast from "./components/Forecast";
 import HourlyForecast from "./components/HourlyForecast";
 import useLocalStorage from "./hooks/useLocalStorage";
+import CurrentWeather from "./components/CurrentWeather";
 
 
 
@@ -112,17 +113,20 @@ hookFetchWeather(cleanCity);
   
   <WeatherHeading
   city={searchedCity}
-  temperature={hookTemperature}
-  feelsLike={hookFeelsLike}
-  condition={hookCondition}
-  icon={hookIcon}
-  windSpeed={hookWindSpeed}
-  humidity={hookHumidity}
-  pressure={hookPressure}
-  visibility={hookVisibility}
-  sunrise={hookSunrise}
-sunset={hookSunset}
-/>
+>
+  <CurrentWeather
+    temperature={hookTemperature}
+    feelsLike={hookFeelsLike}
+    condition={hookCondition}
+    icon={hookIcon}
+    windSpeed={hookWindSpeed}
+    humidity={hookHumidity}
+    pressure={hookPressure}
+    visibility={hookVisibility}
+    sunrise={hookSunrise}
+    sunset={hookSunset}
+  />
+</WeatherHeading>
 
 
 

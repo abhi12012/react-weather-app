@@ -181,7 +181,7 @@ sunset={hookSunset}
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
 
-    console.log("Location:", latitude, longitude);
+    
 
     setSearchedCity("My Location");
 
@@ -191,7 +191,7 @@ sunset={hookSunset}
 
 
   (error) => {
-  console.log("Location Error:", error.message);
+ 
   hookSetWeatherError(error.message);
 }
 

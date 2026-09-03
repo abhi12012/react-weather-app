@@ -1,5 +1,4 @@
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import WeatherHeading from "./components/WeatherHeading";
 import useWeather from "./hooks/useWeather";
 import Forecast from "./components/Forecast";
@@ -66,7 +65,7 @@ const isFavorite = favorites.includes(searchedCity);
 
 
    
-  function handleSearch(event) {
+ const handleSearch = useCallback((event) => {
   event.preventDefault();
 
   const cleanCity = city.trim();
@@ -95,7 +94,7 @@ setSearchHistory([cleanCity, ...searchHistory]);
 
 hookFetchWeather(cleanCity);
  
-}
+});
 
 
 

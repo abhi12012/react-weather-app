@@ -1,4 +1,7 @@
+import { memo } from "react";
+
 function SearchBar({ city, setCity, handleSearch }) {
+  console.log("SearchBar render");
   return (
     <form onSubmit={handleSearch}>
       <input
@@ -11,4 +14,4 @@ function SearchBar({ city, setCity, handleSearch }) {
   );
 }
 
-export default SearchBar;
+export default memo(SearchBar);

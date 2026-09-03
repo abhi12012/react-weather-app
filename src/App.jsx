@@ -42,8 +42,10 @@ hourly: hookHourly,
   []
 );
   
-const [favorites, setFavorites] = useState([]);
-console.log(favorites);
+const [favorites, setFavorites] = useLocalStorage(
+  "favorites",
+  []
+);
    
    useEffect(() => {
   
@@ -141,7 +143,14 @@ sunset={hookSunset}
 
 <ul>
   {favorites.map((city, index) => (
-    <li key={index}>{city}</li>
+
+   <li
+  key={index}
+  onClick={() => hookFetchWeather(city)}
+>
+  {city}
+</li>
+
   ))}
 </ul>
 

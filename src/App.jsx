@@ -7,6 +7,7 @@ import HourlyForecast from "./components/HourlyForecast";
 import useLocalStorage from "./hooks/useLocalStorage";
 import CurrentWeather from "./components/CurrentWeather";
 import SearchBar from "./components/SearchBar";
+import LoadingError from "./components/LoadingError";
 
 
 
@@ -102,38 +103,31 @@ hookFetchWeather(cleanCity);
   <div>
 
 
-{hookLoading ? (
-  <p>Loading...</p>
+<LoadingError
+  loading={hookLoading}
+  error={hookError}
+/>
 
-) : hookError ? (
-  <p>{hookError}</p>
-) : !searchedCity ? (
+{!hookLoading && !hookError && !searchedCity ? (
   <p>🌦️ Search for a city</p>
-) : (
+) : null}
 
-  
-  <WeatherHeading
-  city={searchedCity}
->
-  <CurrentWeather
-    temperature={hookTemperature}
-    feelsLike={hookFeelsLike}
-    condition={hookCondition}
-    icon={hookIcon}
-    windSpeed={hookWindSpeed}
-    humidity={hookHumidity}
-    pressure={hookPressure}
-    visibility={hookVisibility}
-    sunrise={hookSunrise}
-    sunset={hookSunset}
-  />
-</WeatherHeading>
-
-
-
-
-)}
-
+{!hookLoading && !hookError && searchedCity ? (
+  <WeatherHeading city={searchedCity}>
+    <CurrentWeather
+      temperature={hookTemperature}
+      feelsLike={hookFeelsLike}
+      condition={hookCondition}
+      icon={hookIcon}
+      windSpeed={hookWindSpeed}
+      humidity={hookHumidity}
+      pressure={hookPressure}
+      visibility={hookVisibility}
+      sunrise={hookSunrise}
+      sunset={hookSunset}
+    />
+  </WeatherHeading>
+) : null}
 
 <button
   onClick={() => {

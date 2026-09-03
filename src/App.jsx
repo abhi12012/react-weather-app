@@ -43,6 +43,7 @@ hourly: hookHourly,
 );
   
 const [favorites, setFavorites] = useState([]);
+console.log(favorites);
    
    useEffect(() => {
   
@@ -125,9 +126,25 @@ sunset={hookSunset}
 )}
 
 
-<button>
+<button
+  onClick={() => {
+    if (!favorites.includes(searchedCity)) {
+      setFavorites([...favorites, searchedCity]);
+    }
+  }}
+>
   ❤️ Favorite
 </button>
+
+
+<h2>Favorites</h2>
+
+<ul>
+  {favorites.map((city, index) => (
+    <li key={index}>{city}</li>
+  ))}
+</ul>
+
 
 <h2>Recent Searches</h2>
 

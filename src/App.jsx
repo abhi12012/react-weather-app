@@ -23,6 +23,7 @@ const {
   loading: hookLoading,
   error: hookError,
   fetchWeather: hookFetchWeather,
+  setWeatherError: hookSetWeatherError,
   humidity: hookHumidity,
   pressure: hookPressure,
   visibility: hookVisibility,
@@ -172,15 +173,29 @@ sunset={hookSunset}
 
 <button
   onClick={() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        console.log("Location:", latitude, longitude);
+    hookSetWeatherError("");
+   navigator.geolocation.getCurrentPosition(
+  (position) => {
 
-       hookFetchWeather(null, latitude, longitude);
-      }
-    );
+
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    console.log("Location:", latitude, longitude);
+
+    setSearchedCity("My Location");
+
+    hookFetchWeather(null, latitude, longitude);
+  },
+
+
+
+  (error) => {
+  console.log("Location Error:", error.message);
+  hookSetWeatherError(error.message);
+}
+
+);
   }}
 >
   📍 Use My Location

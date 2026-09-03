@@ -30,7 +30,9 @@ function useWeather() {
   
 
 
-
+function setWeatherError(message) {
+  setError(message);
+}
 
 
  async function fetchWeather(cleanCity, latitude, longitude) {
@@ -151,6 +153,7 @@ return {
 sunset,
 forecast,
 hourly,
+setWeatherError,
 };
 
 }

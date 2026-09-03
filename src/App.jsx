@@ -131,7 +131,7 @@ sunset={hookSunset}
 
 <button
   onClick={() => {
-    
+
     if (favorites.includes(searchedCity)) {
   setFavorites(
     favorites.filter((city) => city !== searchedCity)
@@ -144,6 +144,10 @@ sunset={hookSunset}
 >
   {isFavorite ? "❤️ Favorited" : "❤️ Favorite"}
 </button>
+
+
+
+
 
 
 <h2>Favorites</h2>
@@ -160,6 +164,30 @@ sunset={hookSunset}
 
   ))}
 </ul>
+
+
+
+
+
+
+<button
+  onClick={() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        console.log(latitude);
+        console.log(longitude);
+      }
+    );
+  }}
+>
+  📍 Use My Location
+</button>
+
+
+
 
 
 <h2>Recent Searches</h2>

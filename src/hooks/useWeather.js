@@ -33,7 +33,7 @@ function useWeather() {
 
 
 
- async function fetchWeather(cleanCity) {
+ async function fetchWeather(cleanCity, latitude, longitude) {
 
 
 
@@ -43,12 +43,15 @@ function useWeather() {
 
   try {
 
-    const coordinates = await getCoordinates(cleanCity);
+   const coordinates =
+  latitude !== undefined && longitude !== undefined
+    ? { latitude, longitude }
+    : await getCoordinates(cleanCity);
 
-    const weatherData = await getWeather(
-      coordinates.latitude,
-      coordinates.longitude
-    );
+const weatherData = await getWeather(
+  coordinates.latitude,
+  coordinates.longitude
+);
 
     
 

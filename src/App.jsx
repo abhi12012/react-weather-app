@@ -6,6 +6,7 @@ import Forecast from "./components/Forecast";
 import HourlyForecast from "./components/HourlyForecast";
 import useLocalStorage from "./hooks/useLocalStorage";
 import CurrentWeather from "./components/CurrentWeather";
+import SearchBar from "./components/SearchBar";
 
 
 
@@ -231,14 +232,12 @@ hookFetchWeather(cleanCity);
 </button>
 
 
-    <form onSubmit={handleSearch}>
-      <input
-        value={city}
-        onChange={(event) => setCity(event.target.value)}
-      />
+    <SearchBar
+  city={city}
+  setCity={setCity}
+  handleSearch={handleSearch}
+/>
 
-      <button type="submit">Search</button>
-    </form>
   </div>
 );
 }

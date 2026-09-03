@@ -46,6 +46,7 @@ const [favorites, setFavorites] = useLocalStorage(
   "favorites",
   []
 );
+const isFavorite = favorites.includes(searchedCity);
    
    useEffect(() => {
   
@@ -130,12 +131,18 @@ sunset={hookSunset}
 
 <button
   onClick={() => {
-    if (!favorites.includes(searchedCity)) {
-      setFavorites([...favorites, searchedCity]);
-    }
+    
+    if (favorites.includes(searchedCity)) {
+  setFavorites(
+    favorites.filter((city) => city !== searchedCity)
+  );
+} else {
+  setFavorites([...favorites, searchedCity]);
+}
+
   }}
 >
-  ❤️ Favorite
+  {isFavorite ? "❤️ Favorited" : "❤️ Favorite"}
 </button>
 
 

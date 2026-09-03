@@ -10,6 +10,9 @@ function CurrentWeather({
   condition,
   windSpeed
 }) {
+
+   
+
   return (
     <div>
       <p>{icon}</p>

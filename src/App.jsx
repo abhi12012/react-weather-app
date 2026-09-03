@@ -97,6 +97,37 @@ hookFetchWeather(cleanCity);
  
 }
 
+
+
+function renderWeather() {
+  if (hookLoading) {
+    return <LoadingError loading={hookLoading} error={hookError} />;
+  } else if (hookError) {
+    return <LoadingError loading={hookLoading} error={hookError} />;
+  } else if (searchedCity) {
+    return (
+      <WeatherHeading city={searchedCity}>
+        <CurrentWeather
+          temperature={hookTemperature}
+          feelsLike={hookFeelsLike}
+          condition={hookCondition}
+          icon={hookIcon}
+          windSpeed={hookWindSpeed}
+          humidity={hookHumidity}
+          pressure={hookPressure}
+          visibility={hookVisibility}
+          sunrise={hookSunrise}
+          sunset={hookSunset}
+        />
+      </WeatherHeading>
+    );
+  } else {
+    return <p>🌦️ Search for a city</p>;
+  }
+}
+
+
+
   return (
 
 
@@ -112,22 +143,27 @@ hookFetchWeather(cleanCity);
   <p>🌦️ Search for a city</p>
 ) : null}
 
-{!hookLoading && !hookError && searchedCity ? (
-  <WeatherHeading city={searchedCity}>
-    <CurrentWeather
-      temperature={hookTemperature}
-      feelsLike={hookFeelsLike}
-      condition={hookCondition}
-      icon={hookIcon}
-      windSpeed={hookWindSpeed}
-      humidity={hookHumidity}
-      pressure={hookPressure}
-      visibility={hookVisibility}
-      sunrise={hookSunrise}
-      sunset={hookSunset}
-    />
-  </WeatherHeading>
+{!hookLoading && !hookError ? (
+  searchedCity ? (
+    <WeatherHeading city={searchedCity}>
+      <CurrentWeather
+        temperature={hookTemperature}
+        feelsLike={hookFeelsLike}
+        condition={hookCondition}
+        icon={hookIcon}
+        windSpeed={hookWindSpeed}
+        humidity={hookHumidity}
+        pressure={hookPressure}
+        visibility={hookVisibility}
+        sunrise={hookSunrise}
+        sunset={hookSunset}
+      />
+    </WeatherHeading>
+  ) : (
+    <p>🌦️ Search for a city</p>
+  )
 ) : null}
+
 
 <button
   onClick={() => {

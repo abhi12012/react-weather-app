@@ -93,9 +93,8 @@ setSearchHistory([cleanCity, ...searchHistory]);
 }
 
 hookFetchWeather(cleanCity);
- 
-});
 
+}, [city, searchHistory, hookFetchWeather]);
 
 
 function renderWeather() {

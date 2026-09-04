@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import WeatherContext from "../context/WeatherContext";
+
 function CurrentWeather({
   temperature,
   feelsLike,
@@ -11,6 +14,8 @@ function CurrentWeather({
   windSpeed
 }) {
 
+  const { searchedCity } = useContext(WeatherContext);
+  
    
 
   return (

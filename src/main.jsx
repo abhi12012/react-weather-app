@@ -6,8 +6,6 @@ import WeatherContext from "./context/WeatherContext";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <WeatherContext.Provider value="Hello Weather">
   <App />
-</WeatherContext.Provider>
-  </StrictMode>,
+</StrictMode>
 )

@@ -7,6 +7,7 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import CurrentWeather from "./components/CurrentWeather";
 import SearchBar from "./components/SearchBar";
 import LoadingError from "./components/LoadingError";
+import WeatherContext from "./context/WeatherContext";
 
 
 
@@ -126,11 +127,9 @@ function renderWeather() {
 
 
 
-  return (
-
-
-  <div>
-
+ return (
+  <WeatherContext.Provider value={{ searchedCity, setSearchedCity }}>
+    <div>
 
 <LoadingError
   loading={hookLoading}
@@ -266,7 +265,8 @@ function renderWeather() {
   handleSearch={handleSearch}
 />
 
-  </div>
+      </div>
+  </WeatherContext.Provider>
 );
 }
 

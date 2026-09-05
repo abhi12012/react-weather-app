@@ -14,7 +14,7 @@ import WeatherContext from "./context/WeatherContext";
 function counterReducer(state, action) {
   switch (action.type) {
     case "increment":
-      return state + 1;
+  return state + action.payload;
 
     case "decrement":
       return state - 1;
@@ -156,10 +156,9 @@ function renderWeather() {
 
       <p>Count: {count}</p>
 
-<button onClick={() => dispatch({ type: "increment" })}>
-  +
+<button onClick={() => dispatch({ type: "increment", payload: 5 })}>
+  +5
 </button>
-
 
 
 

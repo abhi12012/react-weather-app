@@ -206,7 +206,7 @@ return {
   temperature,
   condition,
   windSpeed,
-  loading,
+  loading: weatherState.loading,
   error,
   fetchWeather,
   feelsLike,

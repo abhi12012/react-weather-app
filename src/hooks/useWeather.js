@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
 
 import {
   getCoordinates,
@@ -9,7 +9,58 @@ import weatherConditions from "../utils/weatherConditions";
 import weatherIcons from "../utils/weatherIcons";
 
 
+
+
+
+function weatherReducer(state, action) {
+  switch (action.type) {
+    case "FETCH_START":
+      return {
+        ...state,
+        loading: true,
+        error: ""
+      };
+
+    case "FETCH_SUCCESS":
+      return {
+        ...state,
+        temperature: action.payload.temperature,
+        condition: action.payload.condition,
+        loading: false,
+        error: ""
+      };
+
+    case "FETCH_ERROR":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      };
+
+    default:
+      return state;
+  }
+}
+
+
+
+
+
+
 function useWeather() {
+
+  const initialWeatherState = {
+  temperature: null,
+  condition: "",
+  loading: false,
+  error: ""
+};
+
+const [weatherState, dispatch] = useReducer(
+  weatherReducer,
+  initialWeatherState
+);
+
 
   const [temperature, setTemperature] = useState(null);
   const [condition, setCondition] = useState("");
@@ -35,11 +86,16 @@ function setWeatherError(message) {
 }
 
 
+
+
+
+
+
  async function fetchWeather(cleanCity, latitude, longitude) {
 
 
 
-  setLoading(true);
+ dispatch({ type: "FETCH_START" });
 
   setError("");
 

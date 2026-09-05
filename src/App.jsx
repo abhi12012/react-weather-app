@@ -12,16 +12,21 @@ import WeatherContext from "./context/WeatherContext";
 
 
 function counterReducer(state, action) {
-  if (action.type === "increment") {
-    return state + 1;
-  }
+  switch (action.type) {
+    case "increment":
+      return state + 1;
 
-  if (action.type === "decrement") {
-    return state - 1;
-  }
+    case "decrement":
+      return state - 1;
 
-  return state;
+    case "reset":
+      return 0;
+
+    default:
+      return state;
+  }
 }
+
 
 
 function App() {
@@ -164,6 +169,10 @@ function renderWeather() {
 
 
 
+
+<button onClick={() => dispatch({ type: "reset" })}>
+  Reset
+</button>
 
 
 

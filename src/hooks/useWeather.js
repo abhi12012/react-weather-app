@@ -14,12 +14,20 @@ import weatherIcons from "../utils/weatherIcons";
 
 function weatherReducer(state, action) {
   switch (action.type) {
+
     case "FETCH_START":
       return {
         ...state,
         loading: true,
         error: ""
       };
+
+
+      case "FETCH_FINISH":
+  return {
+    ...state,
+    loading: false
+  };
 
     case "FETCH_SUCCESS":
       return {
@@ -189,7 +197,7 @@ setHourly(weatherData.hourly);
 
 } finally {
 
-  setLoading(false);
+ dispatch({ type: "FETCH_FINISH" });
 
 }
 

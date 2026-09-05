@@ -119,6 +119,17 @@ const weatherData = await getWeather(
   coordinates.longitude
 );
 
+
+
+dispatch({
+  type: "FETCH_SUCCESS",
+  payload: {
+    temperature: weatherData.temperature,
+    condition: weatherConditions[weatherData.weatherCode] || "Unknown Weather"
+  }
+});
+
+
     
 
     const currentTemperature = weatherData.temperature;
@@ -191,11 +202,16 @@ setHourly(weatherData.hourly);
 
     setWindSpeed(currentWindSpeed);
 
-  } catch (error) {
+  } 
+  
+  catch (error) {
+  dispatch({
+    type: "FETCH_ERROR",
+    payload: error.message || "Something went wrong"
+  });
+}
 
-  setError(error.message || "Something went wrong");
-
-} finally {
+finally {
 
  dispatch({ type: "FETCH_FINISH" });
 
@@ -203,7 +219,7 @@ setHourly(weatherData.hourly);
 
 }
 return {
-  temperature,
+  temperature: weatherState.temperature,
   condition,
   windSpeed,
   loading: weatherState.loading,

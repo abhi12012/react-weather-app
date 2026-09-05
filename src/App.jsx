@@ -58,7 +58,8 @@ hourly: hookHourly,
 const { searchedCity: contextSearchedCity, setSearchedCity: contextSetSearchedCity } =
   useWeatherContext();
 
-  
+
+const { weatherContextState, weatherContextDispatch } = useWeatherContext();
 
   const [city, setCity] = useState("Gwalior");
   const [searchedCity, setSearchedCity] = useState("");
@@ -157,6 +158,8 @@ function renderWeather() {
 
 
       <p>Count: {count}</p>
+
+      <p>Context City: {weatherContextState}</p>
 
 <button onClick={() => dispatch({ type: "increment", payload: 5 })}>
   +5

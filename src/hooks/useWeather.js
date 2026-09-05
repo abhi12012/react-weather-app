@@ -70,8 +70,8 @@ const [weatherState, dispatch] = useReducer(
 );
 
 
-  const [temperature, setTemperature] = useState(null);
-  const [condition, setCondition] = useState("");
+ 
+ 
   const [windSpeed, setWindSpeed] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -132,9 +132,9 @@ dispatch({
 
     
 
-    const currentTemperature = weatherData.temperature;
+    
 
-    setTemperature(currentTemperature);
+   
 
 
 
@@ -189,7 +189,7 @@ setHourly(weatherData.hourly);
     const currentCondition =
       weatherConditions[weatherCode] || "Unknown Weather";
 
-    setCondition(currentCondition);
+    
 
 
     const currentIcon =
@@ -220,7 +220,7 @@ finally {
 }
 return {
   temperature: weatherState.temperature,
-  condition,
+  condition: weatherState.condition,
   windSpeed,
   loading: weatherState.loading,
   error,

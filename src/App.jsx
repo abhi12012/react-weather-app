@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useContext } from "react";
+import { useState, useEffect, useCallback, useContext, useReducer } from "react";
 import WeatherHeading from "./components/WeatherHeading";
 import useWeather from "./hooks/useWeather";
 import Forecast from "./components/Forecast";
@@ -11,8 +11,17 @@ import WeatherContext from "./context/WeatherContext";
 
 
 
+function counterReducer(state, action) {
+  if (action.type === "increment") {
+    return state + 1;
+  }
 
+  if (action.type === "decrement") {
+    return state - 1;
+  }
 
+  return state;
+}
 
 
 function App() {
@@ -46,6 +55,7 @@ const { searchedCity: contextSearchedCity, setSearchedCity: contextSetSearchedCi
 
   const [city, setCity] = useState("Gwalior");
   const [searchedCity, setSearchedCity] = useState("");
+  const [count, dispatch] = useReducer(counterReducer, 0);
  const [searchHistory, setSearchHistory] = useLocalStorage(
   "searchHistory",
   []
@@ -135,6 +145,27 @@ function renderWeather() {
  return (
   <WeatherContext.Provider value={{ searchedCity, setSearchedCity }}>
     <div>
+
+
+
+
+      <p>Count: {count}</p>
+
+<button onClick={() => dispatch({ type: "increment" })}>
+  +
+</button>
+
+
+
+
+<button onClick={() => dispatch({ type: "decrement" })}>
+  -
+</button>
+
+
+
+
+
 
 <LoadingError
   loading={hookLoading}

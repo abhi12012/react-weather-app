@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 
 const WeatherContext = createContext();
 
@@ -12,6 +12,12 @@ function WeatherProvider({ children }) {
   );
 }
 
-export { WeatherProvider };
+function useWeatherContext() {
+  return useContext(WeatherContext);
+}
+
+
+
+export { WeatherProvider, useWeatherContext };
 
 export default WeatherContext;

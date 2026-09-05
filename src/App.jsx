@@ -57,6 +57,7 @@ hourly: hookHourly,
 const { searchedCity: contextSearchedCity, setSearchedCity: contextSetSearchedCity } =
   useContext(WeatherContext);
 
+  
 
   const [city, setCity] = useState("Gwalior");
   const [searchedCity, setSearchedCity] = useState("");

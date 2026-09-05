@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useContext } from "react";
 import WeatherHeading from "./components/WeatherHeading";
 import useWeather from "./hooks/useWeather";
 import Forecast from "./components/Forecast";
@@ -8,6 +8,7 @@ import CurrentWeather from "./components/CurrentWeather";
 import SearchBar from "./components/SearchBar";
 import LoadingError from "./components/LoadingError";
 import WeatherContext from "./context/WeatherContext";
+
 
 
 
@@ -37,6 +38,10 @@ hourly: hookHourly,
 } = useWeather();
 
 
+
+
+const { searchedCity: contextSearchedCity, setSearchedCity: contextSetSearchedCity } =
+  useContext(WeatherContext);
 
 
   const [city, setCity] = useState("Gwalior");

@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import WeatherContext from "../context/WeatherContext";
 
 function CurrentWeather({
   temperature,
@@ -14,12 +12,22 @@ function CurrentWeather({
   windSpeed
 }) {
 
-  const { searchedCity } = useContext(WeatherContext);
-  
+ 
+ 
    
 
   return (
-    <div>
+    
+
+      <div>
+
+      
+
+    <button onClick={() => setSearchedCity("Mumbai")}>
+      Change City
+    </button>
+
+
       <p>{icon}</p>
       <h2>{temperature}°C</h2>
       <p>Feels like: {feelsLike}°C</p>

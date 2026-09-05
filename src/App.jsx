@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useContext, useReducer } from "react";
 import WeatherHeading from "./components/WeatherHeading";
+import { useWeatherContext } from "./context/WeatherContext";
 import useWeather from "./hooks/useWeather";
 import Forecast from "./components/Forecast";
 import HourlyForecast from "./components/HourlyForecast";
@@ -55,7 +56,7 @@ hourly: hookHourly,
 
 
 const { searchedCity: contextSearchedCity, setSearchedCity: contextSetSearchedCity } =
-  useContext(WeatherContext);
+  useWeatherContext();
 
   
 

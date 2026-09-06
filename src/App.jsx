@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useContext, useReducer } from "react";
+import { useState, useEffect, useCallback, useReducer } from "react";
 import WeatherHeading from "./components/WeatherHeading";
 import { useWeatherContext } from "./context/WeatherContext";
 import useWeather from "./hooks/useWeather";
@@ -55,8 +55,6 @@ hourly: hookHourly,
 
 
 
-const { searchedCity: contextSearchedCity, setSearchedCity: contextSetSearchedCity } =
-  useWeatherContext();
 
 
 const { weatherContextState, weatherContextDispatch } = useWeatherContext();
@@ -78,6 +76,8 @@ const isFavorite = favorites.includes(searchedCity);
    useEffect(() => {
   
   setSearchedCity(city);
+
+  
   hookFetchWeather(city);
 }, []);
 
@@ -111,6 +111,11 @@ const isFavorite = favorites.includes(searchedCity);
 
 
   setSearchedCity(cleanCity);
+
+  weatherContextDispatch({
+  type: "SET_CITY",
+  payload: cleanCity
+});
 
   if (!searchHistory.includes(cleanCity)) {
 setSearchHistory([cleanCity, ...searchHistory]);

@@ -41,11 +41,16 @@ function WeatherProvider({ children }) {
     weatherContextDispatch
   }}
 >
+
+
 <button
   onClick={() => setSearchedCityWithReducer("Mumbai")}
 >
   Test Context Reducer
 </button>
+
+
+
 
       {children}
     </WeatherContext.Provider>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useReducer } from "react";
 import WeatherHeading from "./components/WeatherHeading";
-import { useWeatherContext } from "./context/WeatherContext";
+
 import useWeather from "./hooks/useWeather";
 import Forecast from "./components/Forecast";
 import HourlyForecast from "./components/HourlyForecast";
@@ -132,32 +132,6 @@ hookFetchWeather(cleanCity);
 }, [city, searchHistory, hookFetchWeather]);
 
 
-function renderWeather() {
-  if (hookLoading) {
-    return <LoadingError loading={hookLoading} error={hookError} />;
-  } else if (hookError) {
-    return <LoadingError loading={hookLoading} error={hookError} />;
-  } else if (searchedCity) {
-    return (
-      <WeatherHeading city={searchedCity}>
-        <CurrentWeather
-          temperature={hookTemperature}
-          feelsLike={hookFeelsLike}
-          condition={hookCondition}
-          icon={hookIcon}
-          windSpeed={hookWindSpeed}
-          humidity={hookHumidity}
-          pressure={hookPressure}
-          visibility={hookVisibility}
-          sunrise={hookSunrise}
-          sunset={hookSunset}
-        />
-      </WeatherHeading>
-    );
-  } else {
-    return <p>🌦️ Search for a city</p>;
-  }
-}
 
 
 
@@ -325,9 +299,6 @@ function renderWeather() {
 
 
 
-<button onClick={() => hookFetchWeather("Gwalior")}>
-  Test Hook
-</button>
 
 
     <SearchBar

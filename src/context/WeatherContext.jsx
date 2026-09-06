@@ -18,15 +18,7 @@ function weatherContextReducer(state, action) {
 function WeatherProvider({ children }) {
   const [searchedCity, setSearchedCity] = useState("");
 
-
-
-
   
-
-
-
-
-
   const [weatherContextState, weatherContextDispatch] = useReducer(
   weatherContextReducer,
   ""
@@ -41,10 +33,6 @@ function WeatherProvider({ children }) {
     weatherContextDispatch
   }}
 >
-
-
-
-
 
 
       {children}

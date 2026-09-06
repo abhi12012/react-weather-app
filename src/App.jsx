@@ -138,9 +138,7 @@ hookFetchWeather(cleanCity);
  return (
   <WeatherContext.Provider value={{ searchedCity, setSearchedCity }}>
 
-    <ErrorBoundary>
-  <ErrorTest />
-</ErrorBoundary>
+    
 
     <main className={darkMode ? "dark" : ""}>
 

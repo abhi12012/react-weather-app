@@ -10,7 +10,8 @@ import SearchBar from "./components/SearchBar";
 import LoadingError from "./components/LoadingError";
 import WeatherContext from "./context/WeatherContext";
 
-
+import ErrorBoundary from "./components/ErrorBoundary";
+import ErrorTest from "./components/ErrorTest";
 
 
 function counterReducer(state, action) {
@@ -162,6 +163,10 @@ function renderWeather() {
 
  return (
   <WeatherContext.Provider value={{ searchedCity, setSearchedCity }}>
+
+    <ErrorBoundary>
+  <ErrorTest />
+</ErrorBoundary>
 
     <main className={darkMode ? "dark" : ""}>
 

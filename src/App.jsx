@@ -60,7 +60,9 @@ hourly: hookHourly,
 
 
   const [city, setCity] = useState("Gwalior");
+  
   const [searchedCity, setSearchedCity] = useState("");
+  
   const [count, dispatch] = useReducer(counterReducer, 0);
  const [searchHistory, setSearchHistory] = useLocalStorage(
   "searchHistory",
@@ -70,6 +72,11 @@ hourly: hookHourly,
 const [favorites, setFavorites] = useLocalStorage(
   "favorites",
   []
+);
+
+const [darkMode, setDarkMode] = useLocalStorage(
+  "darkMode",
+  false
 );
 const isFavorite = favorites.includes(searchedCity);
    
@@ -154,9 +161,14 @@ function renderWeather() {
 
  return (
   <WeatherContext.Provider value={{ searchedCity, setSearchedCity }}>
-    <div>
 
+    <div className={darkMode ? "dark" : ""}>
 
+      
+
+    <button onClick={() => setDarkMode(!darkMode)}>
+  {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+</button>
 
 
       <p>Count: {count}</p>

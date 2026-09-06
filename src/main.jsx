@@ -4,11 +4,12 @@ import './index.css'
 import App from './App.jsx'
 import { WeatherProvider } from "./context/WeatherContext";
 import WeatherContext from "./context/WeatherContext";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
   <WeatherProvider>
+  <ErrorBoundary>
     <App />
-  </WeatherProvider>
-</StrictMode>
+  </ErrorBoundary>
+</WeatherProvider>
 )

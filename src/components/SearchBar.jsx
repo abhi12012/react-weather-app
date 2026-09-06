@@ -1,6 +1,8 @@
 import { memo } from "react";
 
 function SearchBar({ city, setCity, handleSearch }) {
+
+  console.log("SearchBar Render");
  
   return (
     <form onSubmit={handleSearch}>

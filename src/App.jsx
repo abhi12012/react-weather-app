@@ -12,6 +12,7 @@ import WeatherContext from "./context/WeatherContext";
 
 
 
+
 function counterReducer(state, action) {
   switch (action.type) {
     case "increment":

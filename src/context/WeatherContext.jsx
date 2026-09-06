@@ -18,12 +18,12 @@ function weatherContextReducer(state, action) {
 function WeatherProvider({ children }) {
   const [searchedCity, setSearchedCity] = useState("");
 
-  function setSearchedCityWithReducer(city) {
-  weatherContextDispatch({
-    type: "SET_CITY",
-    payload: city
-  });
-}
+
+
+
+  
+
+
 
 
 
@@ -43,11 +43,6 @@ function WeatherProvider({ children }) {
 >
 
 
-<button
-  onClick={() => setSearchedCityWithReducer("Mumbai")}
->
-  Test Context Reducer
-</button>
 
 
 

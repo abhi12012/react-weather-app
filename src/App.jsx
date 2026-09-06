@@ -57,7 +57,7 @@ hourly: hookHourly,
 
 
 
-const { weatherContextState, weatherContextDispatch } = useWeatherContext();
+
 
   const [city, setCity] = useState("Gwalior");
   const [searchedCity, setSearchedCity] = useState("");
@@ -112,10 +112,7 @@ const isFavorite = favorites.includes(searchedCity);
 
   setSearchedCity(cleanCity);
 
-  weatherContextDispatch({
-  type: "SET_CITY",
-  payload: cleanCity
-});
+  
 
   if (!searchHistory.includes(cleanCity)) {
 setSearchHistory([cleanCity, ...searchHistory]);
@@ -164,7 +161,7 @@ function renderWeather() {
 
       <p>Count: {count}</p>
 
-      <p>Context City: {weatherContextState}</p>
+      
 
 <button onClick={() => dispatch({ type: "increment", payload: 5 })}>
   +5

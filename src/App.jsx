@@ -162,7 +162,7 @@ function renderWeather() {
  return (
   <WeatherContext.Provider value={{ searchedCity, setSearchedCity }}>
 
-    <div className={darkMode ? "dark" : ""}>
+    <main className={darkMode ? "dark" : ""}>
 
       
 
@@ -251,12 +251,14 @@ function renderWeather() {
 <ul>
   {favorites.map((city, index) => (
 
-   <li
-  key={index}
-  onClick={() => hookFetchWeather(city)}
->
-  {city}
+
+   <li key={index}>
+  <button onClick={() => hookFetchWeather(city)}>
+    {city}
+  </button>
 </li>
+
+
 
   ))}
 </ul>
@@ -328,7 +330,7 @@ function renderWeather() {
   handleSearch={handleSearch}
 />
 
-      </div>
+      </main>
   </WeatherContext.Provider>
 );
 }

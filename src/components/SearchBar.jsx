@@ -4,10 +4,17 @@ function SearchBar({ city, setCity, handleSearch }) {
  
   return (
     <form onSubmit={handleSearch}>
-      <input
-        value={city}
-        onChange={(event) => setCity(event.target.value)}
-      />
+
+
+      <label htmlFor="city">Search City</label>
+
+<input
+  id="city"
+  value={city}
+  onChange={(event) => setCity(event.target.value)}
+/>
+
+
 
       <button type="submit">Search</button>
     </form>

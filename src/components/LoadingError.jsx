@@ -1,10 +1,12 @@
 function LoadingError({ loading, error }) {
   if (loading) {
-    return <p>Loading...</p>;
+
+   return <p role="status">Loading...</p>;
+
   }
 
   if (error) {
-    return <p>{error}</p>;
+   return <p role="alert">{error}</p>;
   }
 
   return null;
